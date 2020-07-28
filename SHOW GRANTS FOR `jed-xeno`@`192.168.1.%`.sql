@@ -1,0 +1,1 @@
+SHOW GRANTS FOR `jed-xeno`@`192.168.1.%`;

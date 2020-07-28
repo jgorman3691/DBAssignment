@@ -1,0 +1,31 @@
+{
+  "sqltools.connections": [
+    {
+      "connectionTimeout": 60,
+      "database": "dbassign",
+      "driver": "MariaDB",
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "name": "MariaDB",
+      "password": "RogerResplendent1953!",
+      "port": 3306,
+      "previewLimit": 50,
+      "server": "192.168.1.7",
+      "username": "jed-xeno"
+    },
+    {
+      "database": "tenants",
+      "driver": "MariaDB",
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "name": "DatabaseAssignment",
+      "password": "RogerResplendent1953!",
+      "port": 3306,
+      "previewLimit": 50,
+      "server": "192.168.1.7",
+      "username": "jed-xeno"
+    }
+  ]
+}
