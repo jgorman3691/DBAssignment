@@ -1,5 +1,6 @@
-CREATE DATABASE renters1;
-USE renters1;
+DROP DATABASE IF EXISTS renters;
+CREATE DATABASE renters;
+USE renters;
 
 CREATE TABLE tenant(
   TenantID VARCHAR(12) NOT NULL UNIQUE,
@@ -14,18 +15,18 @@ CREATE TABLE tenant(
 
 CREATE TABLE repairs(
   TenantID VARCHAR(12) NOT NULL UNIQUE,
-  repairsid INT,
+  repairsid INT(11) AUTO_INCREMENT NOT NULL,
   firstbill DECIMAL(10,2) UNIQUE,
   secondbill DECIMAL(10,2),
   thirdbill DECIMAL(10,2),
   PRIMARY KEY (repairsid),
-  CONSTRAINT fk_category
+  CONSTRAINT fk_repairs_key
   FOREIGN KEY (TenantID) REFERENCES tenant (TenantID)
 );
 
 CREATE TABLE details(
   TenantID VARCHAR(12) NOT NULL UNIQUE,
-  detailsid INT(11) NOT NULL,
+  detailsid INT(11) AUTO_INCREMENT NOT NULL,
   list_of_repair VARCHAR(400) NOT NULL,
   cost_of_repair DECIMAL(8,2) NOT NULL,
   date_of_repair DATE NOT NULL,
@@ -34,13 +35,13 @@ CREATE TABLE details(
   model VARCHAR(30) NOT NULL,
   warranty LONGBLOB,
   PRIMARY KEY (detailsid),
-  CONSTRAINT fk_category
+  CONSTRAINT fk_details_key
   FOREIGN KEY (TenantID) REFERENCES tenant (TenantID)
 );
 
 CREATE TABLE info(
   TenantID VARCHAR(12) NOT NULL UNIQUE,
-  infoid INT(11) NOT NULL,
+  infoid INT(11) AUTO_INCREMENT NOT NULL,
   fname  VARCHAR(20) NOT NULL,
   mname  VARCHAR(20) NOT NULL,
   lname  VARCHAR(30) NOT NULL,
@@ -52,12 +53,12 @@ CREATE TABLE info(
   email VARCHAR(25),
   employer VARCHAR(30),
   PRIMARY KEY  (infoid),
-  CONSTRAINT fk_category
+  CONSTRAINT fk_info_key
   FOREIGN KEY (TenantID) REFERENCES tenant (TenantID)
 );
 
 CREATE TABLE roomies(
-  roomiesid INT(11) NOT NULL,
+  roomiesid INT(11) AUTO_INCREMENT NOT NULL,
   fname VARCHAR(20),
   mname VARCHAR(20),
   lname VARCHAR(30),
